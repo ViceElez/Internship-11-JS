@@ -52,10 +52,40 @@ while(true){
     worker.push(CresteWorker(firstName,lastname,industry,pay))
 }
 
- let sum=new Array(worker.length).fill(0)
-for(let i=0;i<worker.length;i++){
-    sum[i]=worker[i].pay
-}
+let industryStats={}
+worker.forEach(item => {
+    if(!industryStats[item.industry]){
+        industryStats[item.industry]={
+            totalSalary: 0, 
+            count: 0, 
+            workers: [] 
+        }
+    }
+
+    industryStats[item.industry].totalSalary+=Number(item.pay)
+    industryStats[item.industry].count++;
+    industryStats[item.industry].workers.push(item);   
+});
+
+
+let filteredIndustryStats = [];  
+
+Object.values(industryStats).forEach(item => {
+    if (item.count >= 2) {
+        filteredIndustryStats.push(item);
+    }
+});
+
+filteredIndustryStats.forEach(item => {
+    let avrgSalary=item.totalSalary/item.count
+    item.avrgSalary=avrgSalary
+});
+
+filteredIndustryStats.forEach(item => {
+    console.log("Prosjecna placa:"+item.avrgSalary)
+    console.log("Broj radnika:"+item.count)
+});
+
  
 
 

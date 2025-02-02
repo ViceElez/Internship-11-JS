@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oprema</title>
+    <style>
+        .available { color: green; }
+        .unavailable { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Unos opreme</h2>
+    <input type="text" id="name" placeholder="Naziv opreme">
+    <input type="number" id="price" placeholder="Cijena">
+    <select id="status">
+        <option value="Dostupno">Dostupno</option>
+        <option value="Nedostupno">Nedostupno</option>
+    </select>
+    <button onclick="addEquipment()">Dodaj</button>
+    
+    <h3>Popis opreme</h3>
+    <ul id="equipmentList"></ul>
+    <p id="ratio"></p>
+
+    <script src="script8.js"></script>
+</body>
+</html>
